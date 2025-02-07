@@ -992,6 +992,9 @@
   .w-screen {
     width: 100vw;
   }
+  .max-w-\[00px\] {
+    max-width: 00px;
+  }
   .max-w-\[35rem\] {
     max-width: 35rem;
   }
@@ -1417,6 +1420,9 @@
   .justify-items-stretch {
     justify-items: stretch;
   }
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
+  }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
@@ -1429,10 +1435,28 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
+  .gap-x-1 {
+    column-gap: calc(var(--spacing) * 1);
+  }
+  .gap-x-1\.5 {
+    column-gap: calc(var(--spacing) * 1.5);
+  }
+  .gap-x-2 {
+    column-gap: calc(var(--spacing) * 2);
+  }
+  .gap-x-5 {
+    column-gap: calc(var(--spacing) * 5);
+  }
+  .gap-x-10 {
+    column-gap: calc(var(--spacing) * 10);
+  }
   .space-y-reverse {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 1;
     }
+  }
+  .gap-y-10 {
+    row-gap: calc(var(--spacing) * 10);
   }
   .space-x-reverse {
     :where(& > :not(:last-child)) {
@@ -2550,6 +2574,11 @@
   .md\:h-\[95\%\] {
     @media (width >= 48rem) {
       height: 95%;
+    }
+  }
+  .md\:h-full {
+    @media (width >= 48rem) {
+      height: 100%;
     }
   }
   .md\:grid-cols-2 {
