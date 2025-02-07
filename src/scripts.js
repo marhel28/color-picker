@@ -11,7 +11,7 @@ const hsl = document.getElementById('hsl');
 let hue =0;
 let saturation = 0;
 let lightness =0;
-let alpha = 10;
+let alpha = 1;
 let show_hsl = document.querySelector('.show-hsla');
 const copy_hsl = document.querySelector('.copy-hsl');
 
