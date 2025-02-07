@@ -629,6 +629,9 @@
   .row-auto {
     grid-row: auto;
   }
+  .row-span-2 {
+    grid-row: span 2 / span 2;
+  }
   .row-span-3 {
     grid-row: span 3 / span 3;
   }
@@ -907,6 +910,9 @@
   }
   .h-72 {
     height: calc(var(--spacing) * 72);
+  }
+  .h-fit {
+    height: fit-content;
   }
   .h-full {
     height: 100%;
@@ -2536,6 +2542,26 @@
       width: calc(var(--spacing) * 96);
     }
   }
+  .md\:grid-cols-2 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:grid-rows-2 {
+    @media (width >= 48rem) {
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .md\:flex-row {
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+  }
+  .md\:flex-wrap {
+    @media (width >= 48rem) {
+      flex-wrap: wrap;
+    }
+  }
   .lg\:row-span-3 {
     @media (width >= 64rem) {
       grid-row: span 3 / span 3;
@@ -2616,6 +2642,11 @@
       height: 9%;
     }
   }
+  .lg\:h-\[80\%\] {
+    @media (width >= 64rem) {
+      height: 80%;
+    }
+  }
   .lg\:h-\[90\%\] {
     @media (width >= 64rem) {
       height: 90%;
@@ -2654,6 +2685,31 @@
   .xl\:row-span-3 {
     @media (width >= 80rem) {
       grid-row: span 3 / span 3;
+    }
+  }
+  .xl\:h-\[95\%\] {
+    @media (width >= 80rem) {
+      height: 95%;
+    }
+  }
+  .xl\:grid-cols-2 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .xl\:grid-rows-2 {
+    @media (width >= 80rem) {
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .xl\:flex-row {
+    @media (width >= 80rem) {
+      flex-direction: row;
+    }
+  }
+  .xl\:flex-wrap {
+    @media (width >= 80rem) {
+      flex-wrap: wrap;
     }
   }
 }
