@@ -148,10 +148,10 @@ navbar.addEventListener('click',()=>{
         navbar.classList.add('navbar-rotate');
     }
 })
-addEventListener('click',(event)=>{
-    if (data && !navbar.contains(event.target)) {
-        navbars.classList.add("hidden");
-        navbar.classList.remove("navbar-rotate");
-        data = false;
-    }
-})
+// addEventListener('click',(event)=>{
+//     if (data && !navbar.contains(event.target)) {
+//         navbars.classList.add("hidden");
+//         navbar.classList.remove("navbar-rotate");
+//         data = false;
+//     }
+// })
