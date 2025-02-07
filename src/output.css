@@ -986,6 +986,9 @@
   .w-screen {
     width: 100vw;
   }
+  .max-w-\[35rem\] {
+    max-width: 35rem;
+  }
   .max-w-\[40rem\] {
     max-width: 40rem;
   }
