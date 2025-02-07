@@ -926,6 +926,15 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-\[00px\] {
+    max-height: 00px;
+  }
+  .max-h-\[9\] {
+    max-height: 9;
+  }
+  .max-h-\[600px\] {
+    max-height: 600px;
+  }
   .max-h-\[700px\] {
     max-height: 700px;
   }
@@ -1747,6 +1756,9 @@
   }
   .bg-sky-300 {
     background-color: var(--color-sky-300);
+  }
+  .bg-slate-200 {
+    background-color: var(--color-slate-200);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -2601,6 +2613,11 @@
       flex-wrap: wrap;
     }
   }
+  .lg\:row-span-2 {
+    @media (width >= 64rem) {
+      grid-row: span 2 / span 2;
+    }
+  }
   .lg\:row-span-3 {
     @media (width >= 64rem) {
       grid-row: span 3 / span 3;
@@ -2696,9 +2713,24 @@
       height: 95%;
     }
   }
+  .lg\:h-\[100\%\] {
+    @media (width >= 64rem) {
+      height: 100%;
+    }
+  }
   .lg\:h-full {
     @media (width >= 64rem) {
       height: 100%;
+    }
+  }
+  .lg\:max-h-\[600px\] {
+    @media (width >= 64rem) {
+      max-height: 600px;
+    }
+  }
+  .lg\:max-h-\[700px\] {
+    @media (width >= 64rem) {
+      max-height: 700px;
     }
   }
   .lg\:grid-cols-2 {
