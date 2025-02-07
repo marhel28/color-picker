@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.navbar-rotate > div:first-child{
+    @apply rotate-45 translate-y-1;
+}
+.navbar-rotate > :nth-child(2) {
+    @apply hidden ;
+}
+.navbar-rotate > div:last-child{
+    @apply -rotate-45 -translate-y-1.5;
+}
