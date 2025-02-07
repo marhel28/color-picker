@@ -743,6 +743,9 @@
   .mt-20 {
     margin-top: calc(var(--spacing) * 20);
   }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
   }
@@ -1003,6 +1006,9 @@
   }
   .max-w-\[00px\] {
     max-width: 00px;
+  }
+  .max-w-\[30rem\] {
+    max-width: 30rem;
   }
   .max-w-\[35rem\] {
     max-width: 35rem;
