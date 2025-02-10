@@ -120,6 +120,9 @@
             <p class=" alert_hsla hidden ml-5 text-center my-2">tercopy</p>
             </div>
         </div>
+
+        
+
         <hr class="w-2/3 text-black/50 my-20">
 
 
@@ -327,8 +330,30 @@
             </div>
 
         </div>
-        <div class="container mt-15">
-            <div class=" mx-11  border p-5 rounded-xl border-black/20 ">
+
+        <div class="container mt-40 mx-10">
+            <div class="flex w-full justify-center items-center flex-col px-11">
+                <input type="file" name="files" id="files" class="py-3 w-2/3 bg-slate-400 shadow-md px-5 rounded-t-md "accept="image/*">
+                <div class="w-full flex justify-center items-center max-w-[940px] flex-col">
+                    <canvas id="canvas" class="my-2  max-w-[900px] max-h-[480px] rounded shadow-xl cursor-crosshair"></canvas>
+                    <div id="colorPanel" class="hidden fixed bg-white shadow-lg p-3 rounded flex items-center space-x-3">
+                        <div id="colorPreview" class="w-10 h-10 border rounded"></div>
+                        <div>
+                            <p class="text-sm font-mono">RGB: <span id="rgbValue"></span></p>
+                            <p class="text-sm font-mono">HEX: <span id="hexValue"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="zoomPreview" class="hidden fixed w-40 h-40 border-2 border-gray-500 rounded overflow-hidden bg-white shadow-lg">
+                    <img id="zoomImage" class="absolute">
+                </div>
+                <div class="my-4 w-fit flex justify-center items-center gap-5 flex-wrap h-fit min-w-56 border-4 min-h-28 rounded  border-slate-500/40" id="box-color">
+                
+                </div>
+            </div>
+        </div>
+        <div class="container mt-15 px-11">
+            <div class=" mx-auto  border p-5 rounded-xl border-black/20 max-w-[960px]">
                 <h2 class="text-xl font-bold ">Color Picker</h2>
             <p class="my-5">
                

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eyedropper Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gray-100">
+
+    <h1 class="text-2xl font-bold mb-4">Eyedropper Tool</h1>
+
+    <!-- Upload Image -->
+    <input type="file" id="upload" class="mb-4 p-2 border rounded" accept="image/*">
+
+    <!-- Canvas untuk Gambar -->
+    <canvas id="canvas" class="border rounded cursor-crosshair"></canvas>
+
+    <!-- Panel Warna -->
+    <div id="colorPanel" class="hidden fixed bg-white shadow-lg p-3 rounded flex items-center space-x-3">
+        <div id="colorPreview" class="w-10 h-10 border rounded"></div>
+        <div>
+            <p class="text-sm font-mono">RGB: <span id="rgbValue"></span></p>
+            <p class="text-sm font-mono">HEX: <span id="hexValue"></span></p>
+        </div>
+    </div>
+
+    <!-- Daftar Warna yang Telah Dipilih -->
+    <div id="selectedColors" class="mt-4 flex flex-wrap space-x-2"></div>
+
+    <script>
+        const upload = document.getElementById("upload");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        const colorPanel = document.getElementById("colorPanel");
+        const colorPreview = document.getElementById("colorPreview");
+        const rgbValue = document.getElementById("rgbValue");
+        const hexValue = document.getElementById("hexValue");
+        const selectedColors = document.getElementById("selectedColors");
+
+        upload.addEventListener("change", function (event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                const img = new Image();
+                img.src = e.target.result;
+                img.onload = function () {
+                    canvas.width = img.width ;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
+                };
+            };
+        });
+
+        // Capture Color on Mouse Hover
+        canvas.addEventListener("mousemove", function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const pixel = ctx.getImageData(x, y, 1, 1).data;
+            const rgb = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+            const hex = `#${pixel[0].toString(16).padStart(2, '0')}${pixel[1].toString(16).padStart(2, '0')}${pixel[2].toString(16).padStart(2, '0')}`;
+
+            // Tampilkan panel warna
+            colorPanel.style.display = "flex";
+            colorPanel.style.top = `${event.clientY + 10}px`;
+            colorPanel.style.left = `${event.clientX + 10}px`;
+
+            colorPreview.style.backgroundColor = rgb;
+            rgbValue.textContent = rgb;
+            hexValue.textContent = hex;
+        });
+
+        // Sembunyikan panel saat mouse keluar dari canvas
+        canvas.addEventListener("mouseleave", function () {
+            colorPanel.style.display = "none";
+        });
+        
+        // Simpan warna yang diklik ke daftar
+        canvas.addEventListener("click", function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            const pixel = ctx.getImageData(x, y, 1, 1).data;
+            const rgb = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+            const hex = `#${pixel[0].toString(16).padStart(2, '0')}${pixel[1].toString(16).padStart(2, '0')}${pixel[2].toString(16).padStart(2, '0')}`;
+
+            // Buat elemen warna baru
+            
+            const colorBox = document.createElement("div");
+            if(selectedColors.children.length<4){
+                colorBox.className = "w-16 h-12 rounded border";
+                colorBox.style.backgroundColor = rgb;
+                colorBox.title = `RGB: ${rgb} | HEX: ${hex}`;
+
+                selectedColors.appendChild(colorBox);
+            } 
+
+        });
+    </script>
+
+</body>
+</html>

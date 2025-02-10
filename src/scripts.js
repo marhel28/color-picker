@@ -17,6 +17,134 @@ const component_fg = document.querySelectorAll('.child-component');
 const counter = document.getElementById('count-color');
 const color_check = document.querySelectorAll('.text-color');
 
+
+
+// panel
+const fileInput = document.getElementById("files");
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    const colorPanel = document.getElementById("colorPanel");
+    const colorPreview = document.getElementById("colorPreview");
+    const rgbValue = document.getElementById("rgbValue");
+    const hexValue = document.getElementById("hexValue");
+    const boxColor = document.getElementById("box-color");
+    const zoomPreview = document.getElementById("zoomPreview");
+    const zoomImage = document.getElementById("zoomImage");
+
+    // Saat gambar diunggah
+    fileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    while(true){
+                        if(img.width>=900 || img.height >=480){
+                            img.width = img.width - 10;
+                            img.height = img.height -10;
+                        }else{
+                            break;
+                        }
+                    }
+                    console.info('img :',img.width,img.height);
+                    console.info('canvas :',canvas.width,canvas.height);
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    console.info('canvas :',canvas.width,canvas.height);
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Event untuk zoom dan color picker
+    canvas.addEventListener("mousemove", function (e) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        // Ambil warna pixel di posisi kursor
+        const pixel = ctx.getImageData(x, y, 1, 1).data;
+        const rgb = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+        const hex = `#${((1 << 24) | (pixel[0] << 16) | (pixel[1] << 8) | pixel[2]).toString(16).slice(1)}`;
+
+        colorPreview.style.backgroundColor = rgb;
+        rgbValue.textContent = rgb;
+        hexValue.textContent = hex;
+        colorPanel.style.left = `${e.clientX + 15}px`;
+        colorPanel.style.top = `${e.clientY - 40}px`;
+        colorPanel.style.display = "flex";
+
+        // Zoom Preview
+        const zoomSize = 20;
+        const zoomScale = 6;
+        const zoomCanvas = document.createElement("canvas");
+        zoomCanvas.width = zoomSize;
+        zoomCanvas.height = zoomSize;
+        const zoomCtx = zoomCanvas.getContext("2d");
+
+        
+        zoomCtx.drawImage(canvas, x - zoomSize / 2, y - zoomSize / 2, zoomSize, zoomSize, 0, 0, zoomSize, zoomSize);
+
+        zoomImage.src = zoomCanvas.toDataURL();
+        zoomImage.style.width = `${zoomSize * zoomScale}px`;
+        zoomImage.style.height = `${zoomSize * zoomScale}px`;
+
+ 
+        zoomPreview.style.left = `${e.clientX + 20}px`;
+        zoomPreview.style.top = `${e.clientY + 35}px`;
+        zoomPreview.style.display = "block";
+    });
+
+
+    canvas.addEventListener("mouseleave", function () {
+        zoomPreview.style.display = "none";
+        colorPanel.style.display = "none";
+    });
+
+canvas.addEventListener("click", function (event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const pixel = ctx.getImageData(x, y, 1, 1).data;
+    const rgb = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+    const hex = `#${pixel[0].toString(16).padStart(2, '0')}${pixel[1].toString(16).padStart(2, '0')}${pixel[2].toString(16).padStart(2, '0')}`;
+
+    // Buat elemen warna baru
+            
+    const colorBox = document.createElement("div");
+    if(boxColor.children.length<4){
+        colorBox.className = "w-28 h-28 rounded  hover:scale(120)";
+        let p = document.createElement('p');
+        p.className = 'child-color elco';
+        p.textContent = hex;
+        
+        let div = document.createElement('div');
+        div.className = 'contents';
+        div.innerHTML = '<span>copy</span>';
+        colorBox.style.backgroundColor = rgb;
+        colorBox.title = `RGB: ${rgb} | HEX: ${hex}`;
+        colorBox.innerHTML = '';
+        colorBox.appendChild(p);
+        colorBox.appendChild(div);
+        boxColor.appendChild(colorBox);
+    } 
+    });
+
+document.addEventListener('click',(event)=>{
+    if(event.target.classList.contains('elco')){
+        event.target.parentNode.remove();
+        event.target.remove();
+    }
+})
+
+
+
+
 console.info(font_background);
 const font = [
     'fa-solid fa-star starts text-2xl text-[#0d5f07]',
