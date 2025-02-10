@@ -1626,9 +1626,17 @@
     border-top-style: var(--tw-border-style);
     border-top-width: 0px;
   }
+  .border-t-1 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+  }
   .border-t-2 {
     border-top-style: var(--tw-border-style);
     border-top-width: 2px;
+  }
+  .border-t-3 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 3px;
   }
   .border-r {
     border-right-style: var(--tw-border-style);
@@ -2374,6 +2382,18 @@
   }
   .shadow {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[0_-2px_5px_rgba\(0\,0\,0\,0\.1\)\] {
+    --tw-shadow: 0 -2px 5px var(--tw-shadow-color, rgba(0,0,0,0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[0_-2px_10px_rgba\(0\,0\,0\,0\.1\)\] {
+    --tw-shadow: 0 -2px 10px var(--tw-shadow-color, rgba(0,0,0,0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .shadow-\[0_-4px_10px_rgba\(0\,0\,0\,0\.1\)\] {
+    --tw-shadow: 0 -4px 10px var(--tw-shadow-color, rgba(0,0,0,0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-lg {

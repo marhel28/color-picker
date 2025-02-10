@@ -214,7 +214,7 @@
                 </div>
                 <div class="w-full mt-8">
                     <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white mb-8">
-                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 border-black/20  hover:bg-gray-300">
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 shadow-[0_-2px_5px_rgba(0,0,0,0.1)]  border-black/20  hover:bg-gray-300">
                             <span class="font-semibold ">Table WCAG</span>
                             <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
                         </button>
@@ -258,7 +258,7 @@
                     </div>
                     <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white">
                         <!-- Tombol -->
-                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 border-black/20  hover:bg-gray-300">
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 border-black/20 shadow-[0_-2px_5px_rgba(0,0,0,0.1)]  hover:bg-gray-300">
                             <span class="font-semibold">Disclaimer and Additional Info</span>
                             <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
                         </button>
@@ -315,17 +315,6 @@
                                         <li>✅ Avoid using <span class="font-semibold">color alone</span> to convey meaning (e.g., error messages should include text/icons, not just red color).</li>
                                         <li>✅ Use <span class="font-semibold">sufficient contrast</span> to help users differentiate elements.</li>
                                         <li>✅ Offer <span class="font-semibold">alternative ways</span> to interpret content, such as patterns or labels.</li>
-                                    </ul>
-                                </div>
-                        
-                                <!-- Section 4: How to Check WCAG Compliance? -->
-                                <div class="mt-6">
-                                    <h2 class="text-lg font-semibold text-gray-800">4. How to Check WCAG Compliance?</h2>
-                                    <p class="text-gray-600 mt-2">There are several tools to test color contrast:</p>
-                                    <ul class="list-disc pl-6 text-gray-700 mt-2">
-                                        <li>🔍 <a href="https://webaim.org/resources/contrastchecker/" class="text-blue-500 hover:underline">WebAIM Contrast Checker</a></li>
-                                        <li>🔍 <a href="https://developers.google.com/web/tools/lighthouse" class="text-blue-500 hover:underline">Google Lighthouse</a></li>
-                                        <li>🔍 Browser extensions like <span class="font-semibold">WAVE</span> or <span class="font-semibold">Axe</span></li>
                                     </ul>
                                 </div>
                         
