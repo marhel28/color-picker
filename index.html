@@ -214,7 +214,7 @@
                 </div>
                 <div class="w-full mt-8">
                     <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white mb-8">
-                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b border-black/20  hover:bg-gray-300">
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 border-black/20  hover:bg-gray-300">
                             <span class="font-semibold ">Table WCAG</span>
                             <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
                         </button>
@@ -258,7 +258,7 @@
                     </div>
                     <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white">
                         <!-- Tombol -->
-                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b border-black/20  hover:bg-gray-300">
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b-2 border-black/20  hover:bg-gray-300">
                             <span class="font-semibold">Disclaimer and Additional Info</span>
                             <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
                         </button>
@@ -368,6 +368,8 @@
     </footer>
     <script src="./src/scripts.js"></script>
     <script src="https://kit.fontawesome.com/27cbe9ac1d.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
 </html>
