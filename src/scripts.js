@@ -214,11 +214,8 @@ background.addEventListener('input',()=>{
     let color = background.value;
     data_background = color;
     data_foreground = foreground.value;
-    luminens();
-  
-
-    
     font_background.value = color;
+    luminens();
 
 })
 
@@ -226,24 +223,27 @@ foreground.addEventListener('input',()=>{
     let color = foreground.value;
     data_foreground = color;
     data_background = background.value;
-    luminens();
+    
     font_foreground.value = color;
+    luminens();
 })
 
 font_background.addEventListener('input',()=>{
     let color = font_background.value;
     data_background = color;
     data_foreground = foreground.value;
-    luminens();
+    
     background.value = color
+    luminens();
 })
 font_foreground.addEventListener('input',()=>{
-    let color = font_background.value;
+    let color = font_foreground.value;
     data_foreground = color;
     data_background = background.value;
-    luminens();
+    
 
     foreground.value = color
+    luminens();
 })
 
 color_copy.addEventListener('click',()=>{
