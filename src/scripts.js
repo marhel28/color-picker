@@ -39,10 +39,17 @@ const fileInput = document.getElementById("files");
             reader.onload = function (e) {
                 const img = new Image();
                 img.onload = function () {
+                    console.info('img :',img.width,img.height);
                     while(true){
                         if(img.width>=900 || img.height >=480){
-                            img.width = img.width - 10;
-                            img.height = img.height -10;
+                            if(img.width<img.height/2){
+                                img.height = img.height -10;
+                            }
+                            else{
+                                img.width = img.width - 10;
+                                img.height = img.height -10;
+                            }
+
                         }else{
                             break;
                         }
