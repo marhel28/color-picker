@@ -1775,6 +1775,15 @@
   .bg-sky-200 {
     background-color: var(--color-sky-200);
   }
+  .bg-sky-400 {
+    background-color: var(--color-sky-400);
+  }
+  .bg-sky-500 {
+    background-color: var(--color-sky-500);
+  }
+  .bg-sky-900 {
+    background-color: var(--color-sky-900);
+  }
   .bg-white {
     background-color: var(--color-white);
   }
@@ -2214,6 +2223,9 @@
   }
   .text-white {
     color: var(--color-white);
+  }
+  .text-white\/70 {
+    color: color-mix(in oklab, var(--color-white) 70%, transparent);
   }
   .capitalize {
     text-transform: capitalize;
