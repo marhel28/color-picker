@@ -9,3 +9,9 @@
 .navbar-rotate > div:last-child{
     @apply -rotate-45 -translate-y-1.5;
 }
+.res{
+    @apply text-2xl text-[#0d5f07];
+}
+.starts{
+    @apply text-2xl text-[#0d5f07];
+}

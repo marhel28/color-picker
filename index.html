@@ -9,29 +9,41 @@
 <body>
     <header class="mb-10 border border-black/10">
         <div class=" bg-white/60 backdrop-blur-xl">
-            <div class="p-5 flex justify-between items-center">
+            <div class="p-2 flex justify-between items-center">
                 <div class="w-52 h-15">
                     <img src="./src/img/color.png" alt="" class="w-full h-full object-cover">
                 </div>
-                <div class=" nav-hidden cursor-pointer z-50 h-10 ">
+                <div class="nav-link w-1/4 hidden lg:block ">
+                    <ul class="flex-row flex justify-evenly items-center text-xl font-normal">
+                        <li><a href="#" class="block py-1 px-2 text-base
+                             ">Home</a></li>
+                             <li><a href="#" class="block py-1 px-2 text-base
+                                ">Cotrast Cheker</a></li>
+                                    <li><a href="#" class="block py-1 px-2 text-base
+                                        ">About</a></li>
+                    </ul>
+                </div>
+                <div class=" nav-hidden cursor-pointer z-50 h-10 lg:hidden">
                     <div class="h-1 w-8 my-2 bg-black/70 rounded origin-center transition-all ease-in-out duration-300"></div>
                     <div class="h-1 w-8 my-2 bg-black/70 rounded transition-all ease-in-out duration-300"></div>
                     <div class=" h-1 w-8 bg-black/70 rounded origin-center transition-all ease-in-out duration-300"></div>
                 </div>
-                <div class="navbars hidden absolute w-40 h-44 z-30 right-5 top-5 bg-black/50  flex justify-center 
-                flex-col gap-3 items-center rounded transition-all ease-in-out duration-300 text-white">
-                    <span class="cursor-pointer block hover:bg-black w-full text-center p-2">Login</span>
-                    <span class="cursor-pointer block hover:bg-black  w-full text-center p-2">Sign up</span>
-                    <span class="cursor-pointer block hover:bg-black  w-full text-center p-2">About</span>
+                
+                <div class="navbars hidden absolute w-56 h-60 py-5 z-30 right-5 top-5 bg-black/50  flex justify-around 
+                flex-col gap-3 items-center rounded transition-all ease-in-out duration-300 text-white text-2xl">
+                    <a class="cursor-pointer block hover:bg-black w-full text-center p-2" href="#">Home</a>
+                    <a class="cursor-pointer block hover:bg-black  w-full text-center p-2">Contrast</a>
+                    <a class="cursor-pointer block hover:bg-black  w-full text-center p-2">About</a>
                 </div>
             </div>
         </div>
     </header>
+
     <h1 class=" mx-15 text-4xl text-center font-bold mb-8">...pick your color online</h1>
     <section class="container flex justify-center flex-wrap mx-auto w-full ">
-        <div class="grid justify-center items-center  lg:grid-rows-2 lg:grid-cols-2  gap-5  w-full max-w-[900px] lg:max-h-[600px] 
+        <div class="grid grid-cols-1 mx-4 place-items-center justify-center items-center lg:grid-rows-3 lg:grid-cols-2  gap-5  w-full max-w-[970px] lg:max-h-[560px] 
         ">
-            <div class="lg:row-span-2 max-w-[40rem] h-72 sm:h-96 sm:w-96  rounded-2xl overflow-hidden  shadow-md border border-black/15 
+            <div class="lg:row-span-3 max-w-[40rem] w-full h-72 sm:h-96  rounded-2xl overflow-hidden  shadow-md border border-black/15 
             lg:h-[100%] ">
                 <h1 class=" text text-center font-normal text-xl ">Color Picker</h1>
                 <hr class=" opacity-20">
@@ -50,27 +62,29 @@
         
                 </div>
             </div>
-            <div id="rgb" class="flex flex-col max-w-[40rem] p-5 gap-4 bg-white rounded-2xl  shadow-md border border-black/15 
-            justify-center items-center lg:flex-row lg:flex-wrap">
-                <div class=" p-5 px-8 bg-red-600 border-5 rounded" id="red">
-                    <p class="text-white "><span>12%</span></p>
-                </div>
-                <div class="p-5 px-8 bg-green-600 border-5 rounded" id="green">
-                    <p class="text-white ">12%</p>
-                </div>
-                <div class="p-5 px-8 bg-blue-600 border-5 rounded" id="blue">
-                    <p class="text-white ">12%</p>
+            <div id="rgb" class=" w-full  flex flex-war max-w-[40rem] p-5 gap-4 bg-white rounded-2xl  shadow-md border border-black/15 
+            justify-center  items-center flex-col md:flex-col md:flex-wrap">
+                <div class="flex gap-5  flex-wrap  sm:flex-row justify-center">
+                    <div class=" p-5 px-8 bg-red-600 border-5 rounded" id="red">
+                        <p class="text-white  "><span>12%</span></p>
+                    </div>
+                    <div class="p-5 px-8 bg-green-600 border-5 rounded" id="green">
+                        <p class="text-white ">12%</p>
+                    </div>
+                    <div class="p-5 px-8 bg-blue-600 border-5 rounded" id="blue">
+                        <p class="text-white ">12%</p>
+                    </div>
                 </div>
                 <p class="color-copy block border p-2 rounded bg-black/50 cursor-pointer ">RGB :<span class="total">(255,255,255)</span></p>
                 <p class="hidden alert ">tercopy</p>
             </div>
-            <div class="h-fit flex flex-col max-w-[40rem] bg-white rounded-2xl   shadow-md border border-black/15 
+            <div class="row-span-2 w-full  h-full flex flex-col max-w-[40rem] bg-white rounded-2xl   shadow-md border border-black/15 
             justify-center items-center
             md:flex-row md:flex-wrap overflow-hidden">
-            <div id="hsl" class="w-full  p-5 flex flex-col text-xl gap-3">
-                <div class="w-full">
+            <div id="hsl" class="w-full p-5 flex flex-wrap text-xl gap-3">
+                <div class="w-full not-last-of-type:">
                     <label for="hue">
-                        Hue : <input type="range" name="hue" value="0" id="hue" max="360" min="0" >
+                        Hue : <input type="range" name="hue" value="0" id="hue" max="360" min="0"  class="w-max">
                         <span class="">0</span>
                     </label>
  
@@ -96,7 +110,7 @@
 
                 </div>
             </div>
-            <div class="show-hsla w-full h-1/2 flex justify-center pb-4" >
+            <div class="show-hsla w-full h-32 lg:h-full flex justify-center pb-4" >
                 <div class="w-max h-max bg-sky-100 border-4 border-black/70 rounded ">
                     <h1 class="copy-hsl text-center italic cursor-pointer  p-2 ">hsla(0,0%,0%,1)</h1>
                     
@@ -106,7 +120,93 @@
             <p class=" alert_hsla hidden ml-5 text-center my-2">tercopy</p>
             </div>
         </div>
+        <hr class="w-2/3 text-black/50 my-20">
+        <div class="container max-w-[1050px]">
+            <div class=" p-5   border border-black/20 rounded-2xl mx-11">
+                <div class="flex w-full  flex-wrap  gap-2 lg:flex-nowrap ">
+                    <div class="color flex p-3 flex-col  gap-5 items-center justify-center w-full lg:w-1/2">
+                        <h2 class=" text-2xl">Foreground Color</h2>
+                        <div class="flex gap-5 w-full justify-center">
+                            <input type="color" name="foreground" class="w-20 h-10 border-2" value="#112a46"  id="foreground">
+                        <label for="foreground">
+                            <div class="w-full relative">
+                                <i class="fa-solid fa-eye-dropper text-2xl absolute left-2 top-2 cursor-pointer hover:opacity-65"></i>
+                                <input type="text" name="foreground" id="foreground" value="#112a46" class="
+                                text-center bg-white rounded-full border-2 p-2 w-full outline-0 focus:ring-3 focus:ring-sky-400 focus:border-black/40">
+                            </div>
+                            
+                        </label>
+                        </div>
+                    </div>
+                    <div class="color flex p-3 flex-col  gap-5 items-center justify-center w-full lg:w-1/2 lg:border-l-4 lg:border-dotted">
+                        <h2 class=" text-2xl">Background Color</h2>
+                        <div class="flex gap-5 w-full justify-center">
+                            <input type="color" value="#acc8e5" name="" class="w-20 h-10 border-2 " id="background">
+                        <label for="background">
+                            <div class="w-full relative">
+                                <i class="fa-solid fa-eye-dropper text-2xl absolute left-2 top-2 cursor-pointer hover:opacity-65"></i>
+                                <input type="text" name="background" id="background" value="#acc8e5" class="
+                            text-center bg-white rounded-full border-2 p-2 w-full outline-0 focus:ring-3 focus:ring-sky-400 focus:border-black/40">
+                            </div>
+                        </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- <h1 class="w-full mt-4 text-4xl">contrast</h1> -->
+                <div class=" mt-5 flex w-full flex-wrap lg:flex-row lg:flex-nowrap">
+                    <div class="w-full lg:w-1/2">
+                        <div id="count-color" class="text-color w-full bg-[#d2fbd0] flex justify-between items-center p-5 rounded-t-xl">
+                            <h3 class="text-3xl  text-[#0d5f07] font-extrabold lg:text-5xl">8.4 : 1</h3>
+                            <div class="w-1/4 flex flex-wrap sm:flex-wrap justify-center  gap-1">
+                                <i class="fa-solid fa-star text-2xl text-[#0d5f07] "></i>
+                                <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                                <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                            </div>
+                        </div>
+                        <div id="small-text" class="w-full mt-1.5">
+                            <div  class="text-color w-full bg-[#d2fbd0] flex justify-between items-center p-5 ">
+                                <h3 class="text-xl text-[#0d5f07] ">small : text </h3>
+                                <div class="w-1/4 flex flex-wrap justify-center sm:flex-wrap  gap-1">
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07] "></i>
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Large-text" class="w-full mt-1.5">
+                            <div  class="text-color w-full bg-[#d2fbd0] flex justify-between items-center p-5 rounded-b-xl ">
+                                <h3 class="text-xl text-[#0d5f07] ">Large : text </h3>
+                                <div class="w-1/4 flex flex-wrap justify-center sm:flex-wrap  gap-1">
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07] "></i>
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                                    <i class="fa-solid fa-star text-2xl text-[#0d5f07]"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="component" class="w-full mt-5 lg:mt-0 lg:ml-3">
+                        <div id="component-color" class="w-full bg-[#acc8e5] flex flex-col p-5 rounded-xl h-full">
+                            <i class="child-component fa-solid fa-circle-exclamation text-3xl w-full text-right  text-[#112a46]"></i>
+                            <div class="w-full my-5">
+                                <h1 class="child-component font-bold text-[18px] text-center">Quote n. 40</h1>
+                                <p class="child-component text-center mt-3 max-w-96 mx-auto text-normal">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, aliquam expedita, suscipit adipisci iste ea quidem ut earum, harum sunt mollitia ducimus voluptatibus sa.</p>
+                            </div>
+                            <div class="w-full p-5 my-10 flex gap-3 justify-center ">
+                                <div class=" bg-component  bg-[#112a46] w-15 h-15 child-component">
+                                </div>
+                                <div class="borders  w-0 h-0 border-x-30 border-b-60 border-t-0 border-transparent border-b-[#112a46]"></div>
+                                <div class="child-component bg-component  w-15 h15 rounded-full bg-[#112a46]">
 
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
         <div class="container mt-15">
             <div class=" mx-11  border p-5 rounded-xl border-black/20 ">
                 <h2 class="text-xl font-bold ">Color Picker</h2>
@@ -136,5 +236,6 @@
         </div>
     </footer>
     <script src="./src/scripts.js"></script>
+    <script src="https://kit.fontawesome.com/27cbe9ac1d.js" crossorigin="anonymous"></script>
 </body>
 </html>
