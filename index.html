@@ -211,10 +211,132 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="w-full mt-8">
+                    <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white mb-8">
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b border-black/20  hover:bg-gray-300">
+                            <span class="font-semibold ">Table WCAG</span>
+                            <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
+                        </button>
 
+
+                        <div x-show="open" x-collapse class="p-4 w-full">
+                            <div class="bg-white rounded-lg p-6 w-full ">
+                                <h2 class="text-2xl font-bold text-gray-800 text-center">WCAG Contrast Standards</h2>
+                        
+                                <div class="mt-4">
+                                    <table class="w-full border-collapse border border-gray-300">
+                                        <thead>
+                                            <tr class="bg-gray-200 text-gray-800">
+                                                <th class="border border-gray-300 px-4 py-2 text-left">ELEMENT TYPE</th>
+                                                <th class="border border-gray-300 px-4 py-2 text-center">AA</th>
+                                                <th class="border border-gray-300 px-4 py-2 text-center">AAA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="border border-gray-300">
+                                                <td class="border border-gray-300 px-4 py-2 font-semibold">Small Text</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">4.5 : 1</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">7 : 1</td>
+                                            </tr>
+                                            <tr class="bg-gray-100 border border-gray-300">
+                                                <td class="border border-gray-300 px-4 py-2 font-semibold">Large Text</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">3 : 1</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">4.5 : 1</td>
+                                            </tr>
+                                            <tr class="border border-gray-300">
+                                                <td class="border border-gray-300 px-4 py-2 font-semibold">UI Components</td>
+                                                <td class="border border-gray-300 px-4 py-2 text-center">3 : 1</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        
+                                <p class="text-gray-600 text-center mt-4">WCAG AA and AAA Standards</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div x-data="{ open: false }" class=" rounded-lg shadow-md bg-white">
+                        <!-- Tombol -->
+                        <button @click="open = !open" class="w-full flex justify-between items-center p-4 border-b border-black/20  hover:bg-gray-300">
+                            <span class="font-semibold">Disclaimer and Additional Info</span>
+                            <span :class="open ? 'rotate-180' : 'rotate-0'" class="transition-transform">▼</span>
+                        </button>
+
+
+                        <div x-show="open" x-collapse class="p-4">
+                            <div class="bg-white  rounded-lg p-6 w-full">
+                                <h1 class="text-2xl font-bold text-gray-800">WCAG and Color Accessibility</h1>
+                                <p class="text-gray-600 mt-2">
+                                    The Web Content Accessibility Guidelines (WCAG) provide standards to ensure digital content is accessible to people with disabilities, including those with visual impairments. One key aspect of WCAG compliance is <span class="font-semibold text-blue-700">color contrast</span>, which ensures text is readable against its background.
+                                </p>
+                        
+                                <!-- Section 1: Color Contrast and Readability -->
+                                <div class="mt-6">
+                                    <h2 class="text-lg font-semibold text-gray-800">1. Color Contrast and Readability</h2>
+                                    <p class="text-gray-600 mt-2">
+                                        WCAG defines contrast ratios to ensure sufficient distinction between foreground and background colors. The contrast ratio is calculated as:
+                                    </p>
+                                    <p class="text-center font-mono bg-gray-200 p-2 mt-2 rounded-md">
+                                        (L1 + 0.05) / (L2 + 0.05)
+                                    </p>
+                                    <p class="text-gray-600 mt-2">
+                                        where <span class="font-semibold">L1</span> is the relative luminance of the lighter color and <span class="font-semibold">L2</span> is the relative luminance of the darker color.
+                                    </p>
+                                </div>
+                        
+                                <!-- Section 2: WCAG Contrast Requirements -->
+                                <div class="mt-6">
+                                    <h2 class="text-lg font-semibold text-gray-800">2. WCAG Contrast Requirements</h2>
+                                    <p class="text-gray-600 mt-2">There are different levels of contrast compliance:</p>
+                        
+                                    <div class="mt-4">
+                                        <h3 class="text-md font-semibold text-blue-700">AA Level (Minimum Standard)</h3>
+                                        <ul class="list-disc pl-6 text-gray-700 mt-1">
+                                            <li><span class="font-medium">Normal text:</span> At least <span class="font-semibold text-red-600">4.5:1</span> contrast ratio</li>
+                                            <li><span class="font-medium">Large text (18pt or 14pt bold):</span> At least <span class="font-semibold text-red-600">3:1</span> contrast ratio</li>
+                                        </ul>
+                                    </div>
+                        
+                                    <div class="mt-4">
+                                        <h3 class="text-md font-semibold text-green-700">AAA Level (Enhanced Standard)</h3>
+                                        <ul class="list-disc pl-6 text-gray-700 mt-1">
+                                            <li><span class="font-medium">Normal text:</span> At least <span class="font-semibold text-red-600">7:1</span> contrast ratio</li>
+                                            <li><span class="font-medium">Large text:</span> At least <span class="font-semibold text-red-600">4.5:1</span> contrast ratio</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                        
+                                <!-- Section 3: Color Blindness Considerations -->
+                                <div class="mt-6">
+                                    <h2 class="text-lg font-semibold text-gray-800">3. Color Blindness Considerations</h2>
+                                    <p class="text-gray-600 mt-2">Since many users have some form of <span class="font-semibold text-purple-700">color vision deficiency (CVD)</span>, WCAG advises:</p>
+                                    <ul class="list-disc pl-6 text-gray-700 mt-2">
+                                        <li>✅ Avoid using <span class="font-semibold">color alone</span> to convey meaning (e.g., error messages should include text/icons, not just red color).</li>
+                                        <li>✅ Use <span class="font-semibold">sufficient contrast</span> to help users differentiate elements.</li>
+                                        <li>✅ Offer <span class="font-semibold">alternative ways</span> to interpret content, such as patterns or labels.</li>
+                                    </ul>
+                                </div>
+                        
+                                <!-- Section 4: How to Check WCAG Compliance? -->
+                                <div class="mt-6">
+                                    <h2 class="text-lg font-semibold text-gray-800">4. How to Check WCAG Compliance?</h2>
+                                    <p class="text-gray-600 mt-2">There are several tools to test color contrast:</p>
+                                    <ul class="list-disc pl-6 text-gray-700 mt-2">
+                                        <li>🔍 <a href="https://webaim.org/resources/contrastchecker/" class="text-blue-500 hover:underline">WebAIM Contrast Checker</a></li>
+                                        <li>🔍 <a href="https://developers.google.com/web/tools/lighthouse" class="text-blue-500 hover:underline">Google Lighthouse</a></li>
+                                        <li>🔍 Browser extensions like <span class="font-semibold">WAVE</span> or <span class="font-semibold">Axe</span></li>
+                                    </ul>
+                                </div>
+                        
+                                <p class="text-gray-600 mt-6 font-semibold text-center">By following these guidelines, you can ensure your website is more accessible and user-friendly for everyone. 🚀</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
+
         </div>
         <div class="container mt-15">
             <div class=" mx-11  border p-5 rounded-xl border-black/20 ">
@@ -246,5 +368,6 @@
     </footer>
     <script src="./src/scripts.js"></script>
     <script src="https://kit.fontawesome.com/27cbe9ac1d.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </body>
 </html>
